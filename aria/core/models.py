@@ -6,7 +6,7 @@ from wagtail.snippets.models import register_snippet
 
 
 class WebSite(Page):
-    pass
+    parent_page_types = ['wagtailcore.page']
 
 
 @register_snippet
