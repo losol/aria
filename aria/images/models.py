@@ -34,9 +34,13 @@ class StandardImage(AbstractImage):
         'image_source_url',
         'license'
     )
-    fields_list = list(Image.admin_form_fields).insert(2, custom_fields)
 
-    admin_form_fields = fields_list
+    admin_form_fields = Image.admin_form_fields + (
+        'description',
+        'author',
+        'image_source_url',
+        'license'
+    )
 
 
 class StandardRendition(AbstractRendition):
