@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "wagtail.search",
     "wagtail.admin",
     "wagtail",
+    "wagtailmarkdown",
     "modelcluster",
     "taggit",
     "django.contrib.admin",
@@ -164,3 +165,17 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://example.com"
+
+
+# Wagtail-markdown
+# More info: https://github.com/torchbox/wagtail-markdown
+WAGTAILMARKDOWN = {
+    "autodownload_fontawesome": False,
+    "allowed_tags": [],
+    "allowed_styles": [],
+    "allowed_attributes": {},
+    "allowed_settings_mode": "extend",
+    "extensions": ["toc", "sane_lists"],
+    "extension_configs": {},
+    "extensions_settings_mode": "extend",
+}
