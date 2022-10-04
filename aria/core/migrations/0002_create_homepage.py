@@ -2,50 +2,50 @@
 from django.db import migrations
 
 
-def create_homepage(apps, schema_editor):
+def create_website(apps, schema_editor):
     # Get models
     ContentType = apps.get_model("contenttypes.ContentType")
     Page = apps.get_model("wagtailcore.Page")
     Site = apps.get_model("wagtailcore.Site")
-    HomePage = apps.get_model("core.HomePage")
+    WebSite = apps.get_model("core.WebSite")
 
-    # Delete the default homepage
+    # Delete the default website
     # If migration is run multiple times, it may have already been deleted
     Page.objects.filter(id=2).delete()
 
-    # Create content type for homepage model
-    homepage_content_type, __ = ContentType.objects.get_or_create(
-        model="homepage", app_label="core"
+    # Create content type for website model
+    website_content_type, __ = ContentType.objects.get_or_create(
+        model="website", app_label="core"
     )
 
-    # Create a new homepage
-    homepage = HomePage.objects.create(
+    # Create a new website
+    website = WebSite.objects.create(
         title="Home",
         draft_title="Home",
         slug="home",
-        content_type=homepage_content_type,
+        content_type=website_content_type,
         path="00010001",
         depth=2,
         numchild=0,
         url_path="/home/",
     )
 
-    # Create a site with the new homepage set as the root
+    # Create a site with the new website set as the root
     Site.objects.create(hostname="localhost",
-                        root_page=homepage, is_default_site=True)
+                        root_page=website, is_default_site=True)
 
 
-def remove_homepage(apps, schema_editor):
+def remove_website(apps, schema_editor):
     # Get models
     ContentType = apps.get_model("contenttypes.ContentType")
-    HomePage = apps.get_model("core.HomePage")
+    WebSite = apps.get_model("core.WebSite")
 
-    # Delete the default homepage
+    # Delete the default website
     # Page and Site objects CASCADE
-    HomePage.objects.filter(slug="home", depth=2).delete()
+    WebSite.objects.filter(slug="home", depth=2).delete()
 
-    # Delete content type for homepage model
-    ContentType.objects.filter(model="homepage", app_label="home").delete()
+    # Delete content type for website model
+    ContentType.objects.filter(model="website", app_label="home").delete()
 
 
 class Migration(migrations.Migration):
@@ -59,5 +59,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(create_homepage, remove_homepage),
+        migrations.RunPython(create_website, remove_website),
     ]
