@@ -25,7 +25,11 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     "aria.core",
+    "aria.documents",
+    "aria.images",
+    "aria.person",
     "aria.search",
+    "aria.standardpage",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -92,6 +96,7 @@ DATABASES = {
     }
 }
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -167,6 +172,10 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
 
+# Content models
+WAGTAILIMAGES_IMAGE_MODEL = 'images.StandardImage'
+WAGTAILDOCS_DOCUMENT_MODEL = 'documents.StandardDocument'
+
 # Wagtail-markdown
 # More info: https://github.com/torchbox/wagtail-markdown
 WAGTAILMARKDOWN = {
@@ -175,7 +184,7 @@ WAGTAILMARKDOWN = {
     "allowed_styles": [],
     "allowed_attributes": {},
     "allowed_settings_mode": "extend",
-    "extensions": ["toc", "sane_lists"],
+    "extensions": ["toc"],
     "extension_configs": {},
     "extensions_settings_mode": "extend",
 }
