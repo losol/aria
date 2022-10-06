@@ -1,17 +1,21 @@
 const path = require('path');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
 
 module.exports = (env, argv) => {
   return {
-    entry: path.join(__dirname, 'app', 'index.js'),
+    mode: argv.mode,
+    entry: './app/index.js',
     output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'site.js',
+      path: path.resolve(__dirname, 'dist/assets'),
+      filename: 'js/[name].js',
+      publicPath: '/assets/',
+      clean: true,
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].site.css',
+        filename: 'css/[name].css',
         chunkFilename: '[id].css',
       }),
       new HotModuleReplacementPlugin(),
@@ -51,9 +55,15 @@ module.exports = (env, argv) => {
         },
       ],
     },
+    optimization: {
+      minimizer: [new CssMinimizerPlugin()],
+    },
     devServer: {
       open: true,
-      static: path.join(__dirname, 'dist'),
+      static: {
+        directory: path.join(__dirname, 'dist'),
+        watch: true,
+      },
       hot: true,
     },
   };

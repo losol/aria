@@ -1,2 +1,2 @@
 import './site.css';
-import './public';
+import './components/lightswitch';

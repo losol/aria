@@ -1,44 +1,120 @@
 {% load static wagtailcore_tags wagtailuserbar %}
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>
-            {% block title %}
-            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-            {% wagtail_site as current_site %}
-            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
-            {% endblock %}
-        </title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {# Force all links in the live preview panel to be opened in a new tab #}
-        {% if request.in_preview_panel %}
-        <base target="_blank">
-        {% endif %}
-
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/aria.css' %}">
-
-        {% block extra_css %}
-        {# Override this in templates to add extra stylesheets #}
+<head>
+    <meta charset="utf-8" />
+    <title>
+        {% block title %}
+        {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
         {% endblock %}
-    </head>
-
-    <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
-
-        {% block content %}{% endblock %}
-
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/aria.js' %}"></script>
-
-        {% block extra_js %}
-        {# Override this in templates to add extra javascript #}
+        {% block title_suffix %}
+        {% wagtail_site as current_site %}
+        {% if current_site and current_site.site_name %}| {{ current_site.site_name }}{% endif %}
         {% endblock %}
-    </body>
+    </title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {# Force all links in the live preview panel to be opened in a new tab #}
+    {% if request.in_preview_panel %}
+    <base target="_blank">
+    {% endif %}
+
+    {# Head scripts #}
+    <script type="text/javascript" src="{% static 'js/darkmode.js' %}"></script>
+    {% block extra_head %}
+    {% endblock %}
+
+    {# CSS #}
+
+    {# Global stylesheets #}
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/main.site.css' %}">
+
+    {% block extra_css %}
+    {# Override this in templates to add extra stylesheets #}
+    {% endblock %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+    {% wagtailuserbar %}
+
+    {% block content %}{% endblock %}
+
+    <header>
+        <nav class="navbar">
+            <div class="">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="">Products</a>
+                    </li>
+                    <li>
+                        <a href="">Services</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h1>Hello, article! Is this too long for this title?</h1>
+            <p class="lead">
+                Mustache dreamcatcher fit, echo park franzen raw denim leggings ramps.
+            </p>
+            <p>
+                Coloring book post-ironic tacos, scenester sustainable hell of
+                slow-carb heirloom tumeric hot chicken. Occupy JOMO dreamcatcher
+                kickstarter scenester, PBR&B fashion axe kale chips. Intelligentsia
+                tattooed mlkshk, lyft butcher lumbersexual deep v health goth.
+                Brooklyn flexitarian lo-fi lomo stumptown crucifix. Beard cold-pressed
+                af, gluten-free kale chips venmo fingerstache crucifix normcore tonx
+                mixtape mumblecore.
+            </p>
+            <p>
+                Flexitarian mumblecore letterpress four loko four dollar toast. Yr pug
+                williamsburg knausgaard drinking vinegar pour-over occupy mlkshk green
+                juice taiyaki pabst master cleanse shoreditch keffiyeh. Green juice
+                cray bitters, glossier asymmetrical synth gatekeep messenger bag
+                direct trade yr bushwick. Squid fixie af PBR&B photo booth irony,
+                activated charcoal franzen. Intelligentsia lomo drinking vinegar
+                shaman same unicorn cred. Subway tile lo-fi lomo air plant shoreditch
+                farm-to-table. 90's artisan helvetica, bruh taxidermy narwhal wolf
+                semiotics etsy.
+            </p>
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <ul class="nav-list">
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contact</a>
+                </li>
+                <li>
+                    <button class="btn" id="lightswitch">Light switch</button>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    {# Global javascript #}
+    <script type="text/javascript" src="{% static 'dist/site.js' %}"></script>
+
+    {% block extra_js %}
+    {# Override this in templates to add extra javascript #}
+    {% endblock %}
+</body>
+
 </html>
+
+<
