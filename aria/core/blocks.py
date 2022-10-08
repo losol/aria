@@ -20,6 +20,8 @@ from wagtail.images.blocks import ImageChooserBlock
 
 
 # Featured Image
+
+
 class FeaturedImage(StructBlock):
     image = ImageChooserBlock()
     alt = CharBlock(required=False)
@@ -69,7 +71,7 @@ class ImageGridBlock(StructBlock):
 
 class PullQuoteBlock(StructBlock):
     quote = CharBlock(form_classname="quote title")
-    attribution = CharBlock()
+    attribution = CharBlock(required=False)
     image = ImageChooserBlock(required=False)
 
     class Meta:

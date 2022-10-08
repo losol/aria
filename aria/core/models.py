@@ -12,6 +12,7 @@ from aria.core.blocks import StoryBlock
 
 
 class WebSite(Page):
+    template = 'patterns/pages/web_site.html'
     parent_page_types = ['wagtailcore.page']
 
     story = StreamField(StoryBlock(), blank=True, use_json_field=True)
