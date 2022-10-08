@@ -19,6 +19,26 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 
 
+# Featured Image
+class FeaturedImage(StructBlock):
+    image = ImageChooserBlock()
+    alt = CharBlock(required=False)
+    caption = CharBlock(required=False)
+
+
+class FeaturedImageBlock(StreamBlock):
+    image = FeaturedImage(
+        label="Image",
+        template="patterns/blocks/image_block.html",
+    )
+
+    class Meta:
+        min_num = 0
+        max_num = 1
+
+# Story Blocks
+
+
 class ImageFormatChoiceBlock(FieldBlock):
     field = forms.ChoiceField(
         choices=(

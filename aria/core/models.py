@@ -5,8 +5,20 @@ from wagtail.admin.panels import FieldPanel
 from wagtail.snippets.models import register_snippet
 
 
+from wagtail.fields import StreamField
+
+
+from aria.core.blocks import StoryBlock
+
+
 class WebSite(Page):
     parent_page_types = ['wagtailcore.page']
+
+    story = StreamField(StoryBlock(), blank=True, use_json_field=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel("story"),
+    ]
 
 
 @register_snippet
