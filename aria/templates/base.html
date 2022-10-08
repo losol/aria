@@ -23,7 +23,7 @@
 
     {# Head scripts #}
 
-    {% include 'core/head_inline_script.html'%}
+    {% include 'includes/head_inline_script.html'%}
     {% block extra_head %}
     {% endblock %}
 
@@ -40,7 +40,8 @@
 <body class="{% block body_class %}{% endblock %}">
     {% wagtailuserbar %}
 
-    {% block content %}{% endblock %}
+    {% block content %}
+    {% endblock %}
 
     {# Global javascript #}
     <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
