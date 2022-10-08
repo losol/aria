@@ -4,6 +4,7 @@
 """
 
 from django import forms
+from django.db import models
 from wagtailmarkdown.blocks import MarkdownBlock
 
 from wagtail.blocks import (
@@ -14,6 +15,7 @@ from wagtail.blocks import (
     RichTextBlock,
     StreamBlock,
     StructBlock,
+    URLBlock
 )
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
@@ -72,7 +74,15 @@ class ImageGridBlock(StructBlock):
 class PullQuoteBlock(StructBlock):
     quote = CharBlock(form_classname="quote title")
     attribution = CharBlock(required=False)
-    image = ImageChooserBlock(required=False)
+
+    class Meta:
+        icon = "openquote"
+
+
+class BlockQuoteBlock(StructBlock):
+    quote = RichTextBlock(form_classname="quote text")
+    attribution = CharBlock(required=False)
+    attribution_url = URLBlock(required=False)
 
     class Meta:
         icon = "openquote"
@@ -90,6 +100,9 @@ class StoryBlock(StreamBlock):
     image_grid = ImageGridBlock(
         label="Image grid",
         template="patterns/blocks/image_grid_block.html",
+    )
+    blockquote = BlockQuoteBlock(
+        template="patterns/blocks/blockquote_block.html"
     )
     pullquote = PullQuoteBlock(
         template="patterns/blocks/pullquote_block.html"
