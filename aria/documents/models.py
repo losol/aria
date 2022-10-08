@@ -10,6 +10,11 @@ class StandardDocument(AbstractDocument):
         blank=True,
         null=True
     )
+    source = models.TextField(
+        max_length=255,
+        blank=True,
+        null=True
+    )
     license = models.ForeignKey(
         'core.LicenseSnippet',
         null=True,

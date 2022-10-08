@@ -26,7 +26,7 @@ class PersonPage(Page):
     job_title = models.CharField(max_length=255, blank=True)
 
     intro = models.TextField(blank=True)
-    body = StreamField(StoryBlock(), blank=True, use_json_field=True)
+    story = StreamField(StoryBlock(), blank=True, use_json_field=True)
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
@@ -36,7 +36,7 @@ class PersonPage(Page):
         FieldPanel('image'),
         FieldPanel('job_title'),
         FieldPanel('intro'),
-        FieldPanel('body')
+        FieldPanel('story')
     ]
 
 
