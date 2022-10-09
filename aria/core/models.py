@@ -8,7 +8,7 @@ from wagtail.snippets.models import register_snippet
 from wagtail.fields import StreamField
 
 
-from aria.core.blocks import StoryBlock
+from aria.core.blocks import MenuBlock, StoryBlock
 
 
 class WebSite(Page):
@@ -17,8 +17,13 @@ class WebSite(Page):
 
     story = StreamField(StoryBlock(), blank=True, use_json_field=True)
 
+    header_menu = StreamField(MenuBlock(), blank=True, use_json_field=True)
+    footer_menu = StreamField(MenuBlock(), blank=True, use_json_field=True)
+
     content_panels = Page.content_panels + [
         FieldPanel("story"),
+        FieldPanel("header_menu"),
+        FieldPanel("footer_menu")
     ]
 
 

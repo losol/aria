@@ -1,5 +1,5 @@
 """
-  @Credit: Based on the work of Torchbox
+  @Credit: Many of the blocks based on the work of Torchbox
   @Links: https://github.com/torchbox/wagtail-torchbox/blob/master/tbx/core/blocks.py
 """
 
@@ -11,6 +11,7 @@ from wagtail.blocks import (
     CharBlock,
     FieldBlock,
     ListBlock,
+    PageChooserBlock,
     RawHTMLBlock,
     RichTextBlock,
     StreamBlock,
@@ -20,6 +21,20 @@ from wagtail.blocks import (
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 
+
+# Menu
+
+class MenuLink(StructBlock):
+    title = CharBlock(max_length=100)
+    link_page = PageChooserBlock(required=False)
+    link_external = URLBlock(required=False)
+
+
+class MenuBlock(StreamBlock):
+    link = MenuLink()
+
+    class Meta:
+        icon = "menu"
 
 # Featured Image
 
