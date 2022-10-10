@@ -14,11 +14,11 @@
   }
 
   main article {
-    @apply container max-w-3xl;
+    @apply container max-w-2xl;
   }
 
   footer {
-    @apply container pt-8 mt-24 border-t border-indigo-500;
+    @apply container py-8 mt-24 border-t border-indigo-500;
   }
 
   figure {
@@ -29,7 +29,7 @@
     @apply p-2 text-sm text-gray-500 dark:text-gray-400;
   }
 
-  .navbar {
+  .nav {
     @apply text-xl text-indigo-500 py-4 flex;
   }
 

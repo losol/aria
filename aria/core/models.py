@@ -36,12 +36,14 @@ class NavigationSettings(BaseSiteSetting, ClusterableModel):
     primary_navigation = StreamField(
         MenuBlock(),
         blank=True,
-        help_text="Primary navigation"
+        help_text="Primary navigation",
+        use_json_field=True
     )
     footer_navigation = StreamField(
         MenuBlock(),
         blank=True,
-        help_text="Links at the bottom."
+        help_text="Links at the bottom.",
+        use_json_field=True
     )
     footer_text = RichTextField(
         features=['bold', 'italic', 'link'],

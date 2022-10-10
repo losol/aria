@@ -181,7 +181,7 @@ WAGTAILDOCS_DOCUMENT_MODEL = 'documents.StandardDocument'
 # Wagtail-markdown
 # More info: https://github.com/torchbox/wagtail-markdown
 WAGTAILMARKDOWN = {
-    "autodownload_fontawesome": False,
+    "autodownload_fontawesome": True,
     "allowed_tags": [],
     "allowed_styles": [],
     "allowed_attributes": {},
