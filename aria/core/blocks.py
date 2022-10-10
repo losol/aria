@@ -27,7 +27,13 @@ from wagtail.images.blocks import ImageChooserBlock
 class MenuLink(StructBlock):
     title = CharBlock(max_length=100)
     link_page = PageChooserBlock(required=False)
-    link_external = URLBlock(required=False)
+    link_url = URLBlock(required=False)
+
+    def get_url(self):
+        if self.link_page:
+            return self.link_page.get_url
+
+        return self.link_url
 
 
 class MenuBlock(StreamBlock):

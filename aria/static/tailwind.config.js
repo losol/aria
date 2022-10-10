@@ -4,21 +4,13 @@ module.exports = {
   content: ['dist/*.html'],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      sans: ['source-sans-pro', 'sans-serif'],
+      serif: ['Georgia', 'serif'],
+      mono: ['ui-monospace', 'mono'],
+      body: ['Source Sans Pro'],
+    },
     extend: {
-      fontFamily: {
-        sans: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
-        serif: ['Georgia', 'serif'],
-        mono: ['ui-monospace', 'SFMono-Regular'],
-        body: ['"Open Sans"'],
-      },
-
-      fontSize: {
-        sm: ['14px', '20px'],
-        base: ['16px', '24px'],
-        lg: ['20px', '28px'],
-        xl: ['24px', '32px'],
-      },
-
       container: {
         padding: {
           DEFAULT: '1rem',

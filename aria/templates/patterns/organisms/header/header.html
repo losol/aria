@@ -1,17 +1,10 @@
+{% comment %}
+Header template
+{% endcomment %}
+
 <header>
-    <nav class="navbar">
-        <div class="">
-            <ul class="nav-list">
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="">Products</a>
-                </li>
-                <li>
-                    <a href="">Services</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="navbar">
+    {% include "patterns/molecules/navigation/linklist.html" with links=settings.core.NavigationSettings.primary_navigation %}
+    {% include "patterns/atoms/buttons/lightswitch.html"  %}
+  </nav>
 </header>
