@@ -30,7 +30,7 @@
   }
 
   .nav {
-    @apply text-xl text-indigo-500 py-4 flex;
+    @apply text-xl text-indigo-800 dark:text-indigo-200 py-4 font-bold flex;
   }
 
   .nav-list {
