@@ -11,16 +11,22 @@ from wagtail.snippets.models import register_snippet
 from wagtail.fields import StreamField
 
 
-from aria.core.blocks import MenuBlock, StoryBlock
+from aria.core.blocks import FeaturedImageBlock, MenuBlock, StoryBlock
 
 
 class WebSite(Page):
     template = 'patterns/pages/web_site.html'
     parent_page_types = ['wagtailcore.page']
 
+    heading = models.CharField(max_length=255, blank=True)
+    intro = models.TextField(blank=True)
+    featured_image = StreamField(FeaturedImageBlock(), blank=True, use_json_field=True)
     story = StreamField(StoryBlock(), blank=True, use_json_field=True)
 
     content_panels = Page.content_panels + [
+        FieldPanel("heading"),
+        FieldPanel("intro"),
+        FieldPanel("featured_image"),
         FieldPanel("story")
     ]
 

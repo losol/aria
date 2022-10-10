@@ -21,6 +21,14 @@
     @apply container pt-8 mt-24 border-t border-indigo-500;
   }
 
+  figure {
+    @apply my-8 border border-gray-200 dark:border-gray-800 rounded-lg;
+  }
+
+  figcaption {
+    @apply p-2 text-sm text-gray-500 dark:text-gray-400;
+  }
+
   .navbar {
     @apply text-xl text-indigo-500 py-4 flex;
   }
