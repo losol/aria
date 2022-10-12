@@ -30,7 +30,7 @@ DEBUG = False
 # always set it in the environment variable and never check into the
 # repository.
 if os.getenv('SECRET_KEY'):
-    SECRET_KEY = env['SECRET_KEY']
+    SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 # Define what hosts an app can be accessed by.
@@ -181,20 +181,23 @@ STATICFILES_DIRS = [
 # Configure S3 storage for static and media files
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+STATIC_ROOT = os.getenv("STATIC_ROOT", os.path.join(BASE_DIR, "static"))
 STATIC_URL = os.getenv("STATIC_URL", "/static/")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_LOCATION = 'static'
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'public')
 
 MEDIA_ROOT = os.getenv("MEDIA_ROOT", os.path.join(BASE_DIR, "media"))
 MEDIA_URL = os.getenv("MEDIA_URL", "/media/")
+MEDIAFILES_LOCATION = 'media'
 
-WHITENOISE_ROOT = os.path.join(BASE_DIR, "public")
 
 if os.getenv('AWS_STORAGE_BUCKET_NAME'):
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    STATICFILES_STORAGE = 'core.storage.S3StaticStorage'
+    DEFAULT_FILE_STORAGE = 'core.storage.S3PublicMediaStorage'
     AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
-    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_ACCESS_KEY_ID = os.getenv('AWS_S3_ACCESS_KEY_ID')
+    AWS_S3_SECRET_ACCESS_KEY = os.getenv('AWS_S3_SECRET_ACCESS_KEY')
     AWS_S3_ENDPOINT_URL = os.getenv("AWS_S3_ENDPOINT_URL", None)
     AWS_S3_CUSTOM_DOMAIN = os.getenv("AWS_S3_CUSTOM_DOMAIN", None)
     AWS_S3_SIGNATURE_VERSION = os.getenv("AWS_S3_SIGNATURE_VERSION", "s3v4")
@@ -202,6 +205,11 @@ if os.getenv('AWS_STORAGE_BUCKET_NAME'):
     AWS_QUERYSTRING_AUTH = False
     AWS_S3_FILE_OVERWRITE = False
     AWS_DEFAULT_ACL = "private"
+    AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME", "us-east-1")
+
+else:
+    DEFAULT_FILE_STORAGE = "whitenoise.storage.staticfiles.StaticFilesStorage"
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 WAGTAIL_SITE_NAME = "aria"
@@ -235,3 +243,8 @@ WAGTAILMARKDOWN = {
     "extension_configs": {},
     "extensions_settings_mode": "extend",
 }
+
+
+# Email settings
+# https://docs.djangoproject.com/en/4.1/topics/email/
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
