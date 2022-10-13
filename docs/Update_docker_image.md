@@ -8,6 +8,12 @@ This document describes how to update the Docker image for the [Docker image](ht
 docker build . --tag losolio/aria
 ```
 
+Test the container by running
+
+```bash
+docker run --rm -it  -p 8000:8000/tcp losolio/aria:latest
+```
+
 ## Push the image
 
 After logging in with `docker login`, push the image to the Docker Hub:
