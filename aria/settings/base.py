@@ -71,7 +71,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "storages"
+    "storages",
 ]
 
 MIDDLEWARE = [
@@ -82,7 +82,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
@@ -185,7 +184,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.getenv("STATIC_ROOT", os.path.join(BASE_DIR, "static"))
 STATIC_URL = os.getenv("STATIC_URL", "/static/")
 STATICFILES_LOCATION = 'static'
-WHITENOISE_ROOT = os.path.join(BASE_DIR, 'public')
+
 
 MEDIA_ROOT = os.getenv("MEDIA_ROOT", os.path.join(BASE_DIR, "media"))
 MEDIA_URL = os.getenv("MEDIA_URL", "/media/")
@@ -206,10 +205,6 @@ if os.getenv('AWS_STORAGE_BUCKET_NAME'):
     AWS_S3_FILE_OVERWRITE = False
     AWS_DEFAULT_ACL = "private"
     AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME", "us-east-1")
-
-else:
-    DEFAULT_FILE_STORAGE = "whitenoise.storage.staticfiles.StaticFilesStorage"
-    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 WAGTAIL_SITE_NAME = "aria"
@@ -247,4 +242,5 @@ WAGTAILMARKDOWN = {
 
 # Email settings
 # https://docs.djangoproject.com/en/4.1/topics/email/
+ADMINS = [("admin", os.environ.get("ADMIN_EMAIL", ""))]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
