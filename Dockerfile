@@ -37,7 +37,7 @@ COPY . .
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
-WORKDIR /app/aria
+WORKDIR /app
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
