@@ -39,7 +39,7 @@ USER appuser
 
 WORKDIR /app/aria
 # Collect static files
-RUN python manage.py collectstatic --noinput
+RUN python aria/manage.py collectstatic --noinput
 
 # Run server
 EXPOSE ${PORT:-8000}
