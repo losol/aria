@@ -1,24 +1,11 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
-
-/***/ 2:
-/***/ (() => {
-
-document.addEventListener('DOMContentLoaded', function () {
-  var lightswitch = document.querySelector('#lightswitch');
-  lightswitch.addEventListener('click', toggler());
-}, false);
-
-/***/ }),
 
 /***/ 765:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-"use strict";
 /* harmony import */ var _site_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(889);
-/* harmony import */ var _components_lightswitch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _components_lightswitch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_lightswitch__WEBPACK_IMPORTED_MODULE_1__);
-
 
 
 /***/ }),
@@ -26,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
 /***/ 500:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -51,7 +37,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/*\n! tailwindcss v3.1.8 | MIT License
 /***/ 645:
 /***/ ((module) => {
 
-"use strict";
 
 
 /*
@@ -160,7 +145,6 @@ module.exports = function (cssWithMappingToString) {
 /***/ 81:
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function (i) {
@@ -172,7 +156,6 @@ module.exports = function (i) {
 /***/ 889:
 /***/ ((module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-"use strict";
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(379);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(795);
@@ -278,7 +261,6 @@ if (true) {
 /***/ 379:
 /***/ ((module) => {
 
-"use strict";
 
 
 var stylesInDOM = [];
@@ -389,7 +371,6 @@ module.exports = function (list, options) {
 /***/ 569:
 /***/ ((module) => {
 
-"use strict";
 
 
 var memo = {};
@@ -435,7 +416,6 @@ module.exports = insertBySelector;
 /***/ 216:
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -453,7 +433,6 @@ module.exports = insertStyleElement;
 /***/ 565:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -472,7 +451,6 @@ module.exports = setAttributesWithoutAttributes;
 /***/ 795:
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -549,7 +527,6 @@ module.exports = domAPI;
 /***/ 589:
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -654,7 +631,7 @@ module.exports = styleTagTransform;
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("bb94fb9038b6dedf45ba")
+/******/ 		__webpack_require__.h = () => ("9cb4ec3ec9090b1a3c17")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

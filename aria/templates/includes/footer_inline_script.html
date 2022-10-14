@@ -1,3 +1,32 @@
 <script>
-  setDarkMode();
+ const darken = () => {
+    document.documentElement.classList.add('dark');
+  }
+
+  const lighten = () => {
+    document.documentElement.classList.remove('dark');
+  }
+
+  const toggleDarkMode = () => {
+    btn = document.getElementById("lightswitch");
+    if (document.documentElement.classList.contains('dark')) {
+      lighten();
+      btn.setAttribute('aria-label', 'Slå på lyset på siden');
+      btn.setAttribute('aria-checked', 'false');
+    } else {
+      darken();
+      btn.setAttribute('aria-label', 'Slå av lyset på siden');
+      btn.setAttribute('aria-checked', 'true');
+    }
+  }
+  
+  document.addEventListener(
+    'DOMContentLoaded',
+    function () {
+      const lightswitch = document.querySelector('#lightswitch');
+      lightswitch.addEventListener('click', toggleDarkMode);
+    },
+    false
+  );
+
 </script>
