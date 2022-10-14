@@ -1,10 +1,12 @@
 <script>
  const darken = () => {
     document.documentElement.classList.add('dark');
+    localStorage.DarkMode = 1; 
   }
 
   const lighten = () => {
     document.documentElement.classList.remove('dark');
+    localStorage.DarkMode = 0; 
   }
 
   const toggleDarkMode = () => {
@@ -19,6 +21,16 @@
       btn.setAttribute('aria-checked', 'true');
     }
   }
+
+  const setDarkMode = () => {
+    if (localStorage.DarkMode == 1) {
+      darken();
+    } else {
+      lighten();
+    }
+  }
+
+  setDarkMode();
   
   document.addEventListener(
     'DOMContentLoaded',
