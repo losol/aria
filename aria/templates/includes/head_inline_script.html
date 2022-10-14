@@ -6,22 +6,25 @@
     );
   }
   // Set mode
-  const setMode = () => {
+  const setDarkMode = () => {
+    btn = document.getElementById("lightswitch");
     if (localStorage.darkmode == 1) {
       document.documentElement.classList.add('dark');
+      btn.setAttribute('aria-checked', 'false');
     } else {
       document.documentElement.classList.remove('dark');
+      btn.setAttribute('aria-checked', 'true');
     }
   };
   // Toggle
   const toggler = () => {
+    
     if (localStorage.darkmode == 1) {
       localStorage.darkmode = 0;
-      setMode();
+      setDarkMode();
     } else {
       localStorage.darkmode = 1;
-      setMode();
+      setDarkMode();
     }
   };
-  setMode();
 </script>

@@ -13,6 +13,7 @@
         {% if current_site and current_site.site_name %}| {{ current_site.site_name }}{% endif %}
         {% endblock %}
     </title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -30,7 +31,6 @@
     {# CSS #}
 
     {# Global stylesheets #}
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
 
     {% block extra_css %}
     {# Override this in templates to add extra stylesheets #}
@@ -46,7 +46,7 @@
 
     {# Global javascript #}
     <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
-
+    {% include 'includes/footer_inline_script.html'%}
     {% block extra_js %}
     {# Override this in templates to add extra javascript #}
     {% endblock %}
