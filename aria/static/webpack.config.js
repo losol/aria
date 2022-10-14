@@ -1,6 +1,5 @@
 const path = require('path');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
 
 module.exports = (env, argv) => {
@@ -13,13 +12,7 @@ module.exports = (env, argv) => {
       publicPath: '/assets/',
       clean: true,
     },
-    plugins: [
-      new MiniCssExtractPlugin({
-        filename: 'css/[name].css',
-        chunkFilename: '[id].css',
-      }),
-      new HotModuleReplacementPlugin(),
-    ],
+    plugins: [new HotModuleReplacementPlugin()],
     module: {
       rules: [
         {
@@ -41,12 +34,6 @@ module.exports = (env, argv) => {
           exclude: /node_modules/,
           use: [
             'style-loader',
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                esModule: false,
-              },
-            },
             {
               loader: 'css-loader',
             },

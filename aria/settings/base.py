@@ -170,6 +170,7 @@ STATICFILES_FINDERS = [
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, "static", "dist"),
+    os.path.join(BASE_DIR, "public")
 ]
 
 
