@@ -6,7 +6,8 @@
 
 @layer base {
   body {
-    @apply transition duration-200 dark:bg-gray-900 text-base text-gray-800 dark:text-gray-100;
+    @apply transition duration-200 bg-blue-100 dark:bg-gray-900 text-base text-gray-800 dark:text-gray-100;
+    font-size: 1.15rem;
   }
 
   header {
@@ -14,7 +15,7 @@
   }
 
   main article {
-    @apply container max-w-2xl;
+    @apply container max-w-3xl mx-auto;
   }
 
   footer {
@@ -22,13 +23,37 @@
   }
 
   figure {
-    @apply my-8 border border-gray-200 dark:border-gray-800 rounded-lg;
+    @apply my-8  border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-800;
+  }
+
+  figure.blockquote {
+    @apply my-8 p-4  border-l-8 border-gray-400;
   }
 
   figcaption {
-    @apply p-2 text-sm text-gray-500 dark:text-gray-400;
+    @apply p-3 text-sm text-gray-500 dark:text-gray-400;
   }
 
+  article > ul {
+    @apply list-outside list-disc ml-6 py-6 marker:text-blue-600;
+  }
+
+  article > ul > li {
+    @apply my-3;
+  }
+
+  article > * > a,
+  figcaption > a {
+    @apply text-blue-600 dark:text-blue-200 underline;
+  }
+
+  ul.accordion {
+    @apply list-none;
+  }
+
+  ul.accordion li {
+    @apply p-3 border-b border-gray-200 dark:border-gray-800;
+  }
   .nav {
     @apply text-xl text-indigo-800 dark:text-indigo-200 py-4 font-bold flex;
   }
@@ -42,15 +67,19 @@
   }
 
   h1 {
-    @apply text-5xl pt-24 pb-3 font-serif;
+    @apply text-6xl pt-24 pb-3 font-serif;
   }
 
   h2 {
-    @apply text-2xl pt-3;
+    @apply text-3xl pt-24 pb-3 font-serif;
+  }
+
+  h3 {
+    @apply text-2xl pt-8 pb-2 font-serif;
   }
 
   p {
-    @apply text-gray-800 dark:text-gray-200 pb-6;
+    @apply text-gray-800 dark:text-gray-200 py-3;
   }
 
   .lead {

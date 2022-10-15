@@ -10,13 +10,17 @@ Example:
 
 {% endcomment %}
 
-<figure>
+<figure class="blockquote">
   <blockquote {% if cite_url %} cite="{{cite_url}}" {% endif %}>
     {{ quote}}
   </blockquote>
   {% if author %}
     <figcaption>
-      {{ author }}
+      {% if cite_url %}
+        <a href="{{cite_url}}">{{author}}</a>
+      {% else %}
+        {{author}}
+      {% endif %}
     </figcaption>
   {% endif %}
 </figure>
