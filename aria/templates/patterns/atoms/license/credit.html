@@ -11,15 +11,15 @@ Example:
 {% endcomment %}
 
 <span class="image_credit">Foto: 
+	{% if author %}
+		<span class="imageauthor">{{ author }}.</span>
+	{% endif %}
 	{% if title %}
 		{% if image_source_url %}
-			<a class="imagetitle" href="{{ image_source_url }}">{{ title }}</a>
+			&vert; <a class="imagetitle" href="{{ image_source_url }}">{{ title }}</a>
 		{% else %}
-			<span class="imagetitle">{{ title }}</span>
+			&vert; <span class="imagetitle">{{ title }}</span>
 		{% endif %}
-	{% endif %}
-	{% if author %}
-		<span class="imageauthor">&vert; {{ author }}.</span>
 	{% endif %}
 </span>
 	{% if license %}

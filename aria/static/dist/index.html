@@ -5,33 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Html styles test</title>
 
-    <script>
-      // Save user preference in local storage
-      if (!('darkmode' in localStorage)) {
-        localStorage.darkmode = parseInt(
-          window.matchMedia('(prefers-color-scheme: dark)').matches
-        );
-      }
-      // Set mode
-      const setMode = () => {
-        if (localStorage.darkmode == 1) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-      };
-      // Toggle
-      const toggler = () => {
-        if (localStorage.darkmode == 1) {
-          localStorage.darkmode = 0;
-          setMode();
-        } else {
-          localStorage.darkmode = 1;
-          setMode();
-        }
-      };
-      setMode();
-    </script>
+    <script></script>
   </head>
   <body>
     <header>
@@ -53,19 +27,38 @@
     </header>
     <main>
       <article>
-        <h1>Hello, article! Is this too long for this title?</h1>
+        <h1>
+          Hello, greatarticlereaderfantastico! Is this too long for this title?
+        </h1>
         <p class="lead">
           Mustache dreamcatcher fit, echo park franzen raw denim leggings ramps.
         </p>
         <p>
           Coloring book post-ironic tacos, scenester sustainable hell of
           slow-carb heirloom tumeric hot chicken. Occupy JOMO dreamcatcher
-          kickstarter scenester, PBR&B fashion axe kale chips. Intelligentsia
-          tattooed mlkshk, lyft butcher lumbersexual deep v health goth.
-          Brooklyn flexitarian lo-fi lomo stumptown crucifix. Beard cold-pressed
-          af, gluten-free kale chips venmo fingerstache crucifix normcore tonx
-          mixtape mumblecore.
+          kickstarter scenester, PBR&B <a href="#"> fashion </a>axe kale chips.
+          Intelligentsia tattooed mlkshk, lyft butcher lumbersexual deep v
+          health goth. Brooklyn flexitarian lo-fi lomo stumptown crucifix. Beard
+          cold-pressed af, gluten-free kale chips venmo fingerstache crucifix
+          normcore tonx mixtape mumblecore.
         </p>
+        <h2>Heading 2 might be bold! Or long. But not bold and long</h2>
+        <ul>
+          <li>Item 1 is the first item</li>
+          <li>
+            Item 2 is the second item. This might be a bit too long for the list
+            item... Maybe not? Lorem hipster, etsy 8-bit shoreditch. Tbh etsy,
+            90's pabst. Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum has been the industry's standard
+            dummy text ever since the 1500s, when an unknown printer took a
+            galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic
+            typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum
+            passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum..
+          </li>
+        </ul>
         <p>
           Flexitarian mumblecore letterpress four loko four dollar toast. Yr pug
           williamsburg knausgaard drinking vinegar pour-over occupy mlkshk green
@@ -77,6 +70,70 @@
           farm-to-table. 90's artisan helvetica, bruh taxidermy narwhal wolf
           semiotics etsy.
         </p>
+        <h2>Quotes and quotes...</h2>
+        <figure class="blockquote">
+          <blockquote>
+            Lorem Ipsum has been the industry's standard dummy text ever since
+            the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.
+          </blockquote>
+          <figcaption>Skodde. Losen.</figcaption>
+        </figure>
+        <h3>
+          Heading 3 is often a shorter headling. But still it could be several
+          lines.
+        </h3>
+        <figure>
+          <img
+            src="https://source.unsplash.com/random/800x600"
+            alt="Random image"
+          />
+          <figcaption class="figure-caption">
+            Skikkelig bra caption.
+            <span class="image_credit">
+              Foto:
+              <span class="imageauthor">Skodde losen.</span>
+              <a class="imagetitle" href="https://losol.no/bilde">
+                20220929-1435-LOS04405
+              </a>
+            </span>
+          </figcaption>
+        </figure>
+        <details>
+          <summary>Details title</summary>
+          <p>
+            Squid fixie af PBR&B photo booth irony, activated charcoal franzen.
+            Intelligentsia lomo drinking vinegar shaman same unicorn cred.
+            Subway tile lo-fi lomo air plant shoreditch farm-to-table. 90's
+            artisan helvetica, bruh taxidermy narwhal wolf semiotics etsy.
+          </p>
+        </details>
+        <ul class="accordion">
+          <li>
+            <details>
+              <summary>Details title 2</summary>
+              <p>
+                Squid fixie af PBR&B photo booth irony, activated charcoal
+                franzen. Intelligentsia lomo drinking vinegar shaman same
+                unicorn cred. Subway tile lo-fi lomo air plant shoreditch
+                farm-to-table. 90's artisan helvetica, bruh taxidermy narwhal
+                wolf semiotics etsy.
+              </p>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>Details title 3</summary>
+              <p>
+                Squid fixie af PBR&B photo booth irony, activated charcoal
+                franzen. Intelligentsia lomo drinking vinegar shaman same
+                unicorn cred. Subway tile lo-fi lomo air plant shoreditch
+                farm-to-table. 90's artisan helvetica, bruh taxidermy narwhal
+                wolf semiotics etsy.
+              </p>
+            </details>
+          </li>
+        </ul>
       </article>
     </main>
     <footer>
@@ -103,5 +160,48 @@
       </nav>
     </footer>
     <script src="/assets/js/main.js"></script>
+    <script>
+      const darken = () => {
+        document.documentElement.classList.add('dark');
+        localStorage.DarkMode = 1;
+      };
+
+      const lighten = () => {
+        document.documentElement.classList.remove('dark');
+        localStorage.DarkMode = 0;
+      };
+
+      const toggleDarkMode = () => {
+        btn = document.getElementById('lightswitch');
+        if (document.documentElement.classList.contains('dark')) {
+          lighten();
+          btn.setAttribute('aria-label', 'Slå på lyset på siden');
+          btn.setAttribute('aria-checked', 'false');
+        } else {
+          darken();
+          btn.setAttribute('aria-label', 'Slå av lyset på siden');
+          btn.setAttribute('aria-checked', 'true');
+        }
+      };
+
+      const setDarkMode = () => {
+        if (localStorage.DarkMode == 1) {
+          darken();
+        } else {
+          lighten();
+        }
+      };
+
+      setDarkMode();
+
+      document.addEventListener(
+        'DOMContentLoaded',
+        function () {
+          const lightswitch = document.querySelector('#lightswitch');
+          lightswitch.addEventListener('click', toggleDarkMode);
+        },
+        false
+      );
+    </script>
   </body>
 </html>
