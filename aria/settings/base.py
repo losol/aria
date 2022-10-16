@@ -44,6 +44,7 @@ if os.getenv('ALLOWED_HOSTS'):
 # Application definition
 
 INSTALLED_APPS = [
+    "aria.article",
     "aria.core",
     "aria.documents",
     "aria.images",
