@@ -9,7 +9,6 @@ from wagtail.admin.edit_handlers import (FieldPanel, InlinePanel, PageChooserPan
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Orderable
 from wagtail.models import Page
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
 from core.blocks import FeaturedImageBlock, StoryBlock
 
@@ -34,11 +33,10 @@ class ArticlePage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    # It's datetime for easy comparison with first_published_at
+
     publication_date = models.DateTimeField(
         null=True, blank=True,
-        help_text="Use this field to override the date that the "
-        "articles item appears to have been published."
+        help_text="Use this field to override the date that the articles item appears to have been published."
     )
 
     content_panels = Page.content_panels + [
@@ -46,7 +44,7 @@ class ArticlePage(Page):
         FieldPanel("featured_image"),
         FieldPanel("story"),
         InlinePanel('authors', label="Authors"),
-        SnippetChooserPanel("license"),
+        FieldPanel("license"),
         FieldPanel('publication_date'),
     ]
 
