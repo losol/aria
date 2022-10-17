@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "aria.person",
     "aria.search",
     "aria.standardpage",
+    "wagtail_localize",
+    "wagtail_localize.locales",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.contrib.settings",
@@ -149,7 +151,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "nb"
+WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
+    ('en-US', "English"),
+    ('nb-NO', "Norwegian")
+]
 
 TIME_ZONE = "UTC"
 
